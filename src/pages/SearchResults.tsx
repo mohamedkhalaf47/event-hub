@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,7 +18,7 @@ const SearchResults = () => {
 	const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
 	const [sortBy, setSortBy] = useState("date");
 	const [filterCategory, setFilterCategory] = useState("all");
-	const [hasSearched, setHasSearched] = useState(false)
+	const [hasSearched, setHasSearched] = useState(false);
 
 	// Mock search results
 	const mockResults = [
@@ -68,7 +68,7 @@ const SearchResults = () => {
 				event.location.toLowerCase().includes(searchQuery.toLowerCase())
 		);
 		setFilteredResults(filtered);
-		setHasSearched(true)
+		setHasSearched(true);
 	};
 
 	const handleSortChange = (value: string) => {
@@ -106,6 +106,21 @@ const SearchResults = () => {
 		setSearchParams({});
 		setHasSearched(false);
 	};
+
+	useEffect(() => {
+		const q = searchParams.get("q");
+		if (q) {
+			setSearchQuery(q);
+			const filtered = mockResults.filter(
+				(event) =>
+					event.title.toLowerCase().includes(q.toLowerCase()) ||
+					event.description.toLowerCase().includes(q.toLowerCase()) ||
+					event.location.toLowerCase().includes(q.toLowerCase())
+			);
+			setFilteredResults(filtered);
+			setHasSearched(true);
+		}
+	}, [searchParams]);
 
 	const categories = [
 		"all",
