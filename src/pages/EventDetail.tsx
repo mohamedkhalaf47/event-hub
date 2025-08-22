@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,43 +14,14 @@ import {
 	Share2,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useEvent } from "@/hooks/use-event";
 
 const EventDetail = () => {
 	const { id } = useParams();
+	const { data: event, isLoading, error } = useEvent(id || "");
 	const [isRSVPed, setIsRSVPed] = useState(false);
 	const [rsvpCount, setRsvpCount] = useState(42);
 	const { toast } = useToast();
-
-	// Mock event data - in real app this would come from API
-	const event = {
-		id: id || "1",
-		title: "Community Garden Festival",
-		description:
-			"Join us for a celebration of local produce, sustainable living, and community spirit! This family-friendly festival features local vendors, live music, gardening workshops, and delicious food made from fresh, locally-grown ingredients.\n\nActivities include:\n• Guided garden tours\n• Composting workshop\n• Kids' planting activities\n• Live acoustic performances\n• Farm-to-table food trucks\n• Seed swap market\n\nCome connect with your neighbors and learn about sustainable gardening practices while enjoying great food and entertainment!",
-		date: "2024-09-15T14:00:00",
-		location: "Riverside Community Garden, 123 Green Street",
-		organizer: "Sarah Green",
-		organizerAvatar: "",
-		category: "Community",
-		attendees: [
-			{ name: "John D.", avatar: "" },
-			{ name: "Maria S.", avatar: "" },
-			{ name: "Alex K.", avatar: "" },
-			{ name: "Emma W.", avatar: "" },
-		],
-	};
-
-	const handleRSVP = () => {
-		setIsRSVPed(!isRSVPed);
-		setRsvpCount((prev) => (isRSVPed ? prev - 1 : prev + 1));
-
-		toast({
-			title: isRSVPed ? "RSVP Cancelled" : "RSVP Confirmed! 🎉",
-			description: isRSVPed
-				? "You're no longer attending this event."
-				: "We're excited to see you there!",
-		});
-	};
 
 	const formatDate = (dateString: string) => {
 		const date = new Date(dateString);
@@ -68,6 +39,28 @@ const EventDetail = () => {
 			}),
 		};
 	};
+
+	useEffect(() => {
+		if (event) {
+			setRsvpCount(event.rsvpCount);
+		}
+	}, [event]);
+
+	const handleRSVP = () => {
+		setIsRSVPed(!isRSVPed);
+		setRsvpCount((prev) => (isRSVPed ? prev - 1 : prev + 1));
+
+		toast({
+			title: isRSVPed ? "RSVP Cancelled" : "RSVP Confirmed! 🎉",
+			description: isRSVPed
+				? "You're no longer attending this event."
+				: "We're excited to see you there!",
+		});
+	};
+
+	if (isLoading) return <div className="container py-8">Loading event...</div>;
+	if (error || !event)
+		return <div className="container py-8">Event not found.</div>;
 
 	const { full, time } = formatDate(event.date);
 

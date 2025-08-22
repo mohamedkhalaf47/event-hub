@@ -70,7 +70,7 @@ const EventCard = ({
 							<span className="text-base font-bold leading-none">{day}</span>
 						</div>
 						<div className="flex-1">
-							<h3 className="font-poppins font-semibold text-base md:text-lg line-clamp-1">
+							<h3 className="font-poppins font-semibold text-base md:text-lg sm:line-clamp-2 line-clamp-1">
 								{title}
 							</h3>
 							<p className="text-sm text-muted-foreground">{time}</p>

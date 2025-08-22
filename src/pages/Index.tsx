@@ -6,77 +6,11 @@ import { Search, Calendar, Users, MapPin, Sparkles } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import EventCard from "@/components/events/EventCard";
 import { useState } from "react";
+import { useEvents } from "@/hooks/use-event";
 
 const Index = () => {
 	// Mock featured events data
-	const featuredEvents = [
-		{
-			id: "1",
-			title: "Community Garden Festival",
-			description:
-				"Join us for a celebration of local produce, sustainable living, and community spirit!",
-			date: "2024-09-15T14:00:00",
-			location: "Riverside Community Garden, 123 Green Street",
-			organizer: "Sarah Green",
-			rsvpCount: 42,
-			category: "Community",
-		},
-		{
-			id: "2",
-			title: "Tech Networking Meetup",
-			description:
-				"Connect with local tech professionals and entrepreneurs in a relaxed environment.",
-			date: "2024-09-20T18:30:00",
-			location: "Innovation Hub Downtown",
-			organizer: "TechSF Group",
-			rsvpCount: 28,
-			category: "Professional",
-		},
-		{
-			id: "3",
-			title: "Sunset Yoga Session",
-			description:
-				"Unwind with a peaceful yoga practice while watching the sunset over the ocean.",
-			date: "2024-09-18T18:00:00",
-			location: "Ocean Beach",
-			organizer: "Mindful Movement",
-			rsvpCount: 15,
-			category: "Wellness",
-		},
-		{
-			id: "4",
-			title: "Local Art Exhibition",
-			description:
-				"Discover amazing artwork from talented local artists in our community gallery.",
-			date: "2024-09-22T10:00:00",
-			location: "Community Arts Center",
-			organizer: "Arts Collective",
-			rsvpCount: 67,
-			category: "Arts",
-		},
-		{
-			id: "5",
-			title: "Food Truck Friday",
-			description:
-				"Enjoy delicious food from various local food trucks and live entertainment.",
-			date: "2024-09-25T17:00:00",
-			location: "Central Park Plaza",
-			organizer: "City Events",
-			rsvpCount: 124,
-			category: "Food",
-		},
-		{
-			id: "6",
-			title: "Weekend Hiking Adventure",
-			description:
-				"Explore beautiful local trails with fellow hiking enthusiasts of all levels.",
-			date: "2024-09-28T08:00:00",
-			location: "Mountain Trail Head",
-			organizer: "Outdoor Club",
-			rsvpCount: 35,
-			category: "Outdoor",
-		},
-	];
+	const { data: featuredEvents, isLoading, error } = useEvents();
 	const [query, setQuery] = useState("");
 	const navigate = useNavigate();
 
@@ -203,7 +137,7 @@ const Index = () => {
 					</div>
 
 					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-						{featuredEvents.map((event) => (
+						{featuredEvents?.map((event) => (
 							<EventCard key={event.id} {...event} />
 						))}
 					</div>
