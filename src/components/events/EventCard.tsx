@@ -63,7 +63,7 @@ const EventCard = ({
 	return (
 		<Card className="card-hover h-full flex flex-col">
 			<CardHeader className="pb-3">
-				<div className="flex items-start gap-5">
+				<div className="flex items-start justify-between">
 					<div className="flex items-center space-x-3">
 						<div className="flex flex-col items-center justify-center w-10 h-10 rounded-md bg-primary/10 text-primary">
 							<span className="text-xs font-medium">{month}</span>
@@ -76,7 +76,7 @@ const EventCard = ({
 							<p className="text-sm text-muted-foreground">{time}</p>
 						</div>
 					</div>
-					<Badge variant="secondary" className="text-[9.5px]">
+					<Badge variant="secondary" className="sm:text-xs text-[9px]">
 						{category}
 					</Badge>
 				</div>
