@@ -11,7 +11,7 @@ const Footer = () => {
 						<Calendar className="h-6 w-6 text-primary" />
 						<div>
 							<span className="text-lg font-poppins font-semibold text-primary">
-								Event-Hub
+								EventHub
 							</span>
 							<p className="text-sm text-muted-foreground">
 								Bringing communities together
@@ -51,7 +51,7 @@ const Footer = () => {
 				</div>
 
 				<div className="mt-6 pt-6 border-t text-center text-sm text-muted-foreground">
-					© {new Date().getFullYear()} Event-Hub. All rights reserved.
+					© {new Date().getFullYear()} EventHub. All rights reserved.
 				</div>
 			</div>
 		</footer>
