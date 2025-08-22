@@ -97,11 +97,11 @@ const Profile = () => {
                     <div className="flex items-center space-x-4 text-muted-foreground mb-3">
                       <div className="flex items-center space-x-1">
                         <Mail className="h-4 w-4" />
-                        <span className="text-sm">{profile.email}</span>
+                        <span className="sm:text-sm text-xs">{profile.email}</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <MapPin className="h-4 w-4" />
-                        <span className="text-sm">{profile.location}</span>
+                        <span className="sm:text-sm text-xs">{profile.location}</span>
                       </div>
                     </div>
                     <Badge className="my-2" variant="secondary">

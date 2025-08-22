@@ -65,9 +65,9 @@ const EventCard = ({
 			<CardHeader className="pb-3">
 				<div className="flex items-start gap-5">
 					<div className="flex items-center space-x-3">
-						<div className="flex flex-col items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary">
+						<div className="flex flex-col items-center justify-center w-10 h-10 rounded-md bg-primary/10 text-primary">
 							<span className="text-xs font-medium">{month}</span>
-							<span className="text-lg font-bold leading-none">{day}</span>
+							<span className="text-base font-bold leading-none">{day}</span>
 						</div>
 						<div className="flex-1">
 							<h3 className="font-poppins font-semibold text-base md:text-lg line-clamp-2">
@@ -76,7 +76,7 @@ const EventCard = ({
 							<p className="text-sm text-muted-foreground">{time}</p>
 						</div>
 					</div>
-					<Badge variant="secondary" className="text-xs">
+					<Badge variant="secondary" className="text-[8px]">
 						{category}
 					</Badge>
 				</div>
