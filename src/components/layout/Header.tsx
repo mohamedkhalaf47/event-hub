@@ -80,15 +80,21 @@ const Header = () => {
 
 				{/* Mobile Navigation */}
 				<div className="md:hidden ml-auto flex items-center space-x-2">
-					<Link to="/profile">
-						<Button variant="ghost" size="sm" className="p-2">
-							<Avatar className="h-8 w-8">
-								<AvatarFallback className="bg-primary/10 text-primary">
-									<User className="h-4 w-4" />
-								</AvatarFallback>
-							</Avatar>
-						</Button>
-					</Link>
+					{isLoggedIn ? (
+						<Link to="/auth">
+							<Button className="btn-gradient-secondary">Sign In</Button>
+						</Link>
+					) : (
+						<Link to="/profile">
+							<Button variant="ghost" size="sm" className="p-2">
+								<Avatar className="h-8 w-8">
+									<AvatarFallback className="bg-primary/10 text-primary">
+										<User className="h-4 w-4" />
+									</AvatarFallback>
+								</Avatar>
+							</Button>
+						</Link>
+					)}
 
 					<Sheet>
 						<SheetTrigger asChild>
@@ -133,24 +139,6 @@ const Header = () => {
 										>
 											<Calendar className="h-4 w-4" />
 											<span>Create Event</span>
-										</Button>
-									</Link>
-
-									<Link to="/profile">
-										<Button
-											variant="ghost"
-											className={`w-full justify-start space-x-2 ${
-												isActive("/profile") ? "text-primary bg-primary/10" : ""
-											}`}
-										>
-											<User className="h-4 w-4" />
-											<span>Profile</span>
-										</Button>
-									</Link>
-
-									<Link to="/auth" className="pt-4">
-										<Button className="btn-gradient-secondary w-full">
-											Sign In
 										</Button>
 									</Link>
 								</div>

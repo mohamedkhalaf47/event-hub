@@ -104,7 +104,7 @@ const Profile = () => {
                         <span className="text-sm">{profile.location}</span>
                       </div>
                     </div>
-                    <Badge variant="secondary">
+                    <Badge className="my-2" variant="secondary">
                       Member since {profile.joinDate}
                     </Badge>
                   </div>
