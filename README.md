@@ -37,7 +37,6 @@ src/
 ├── pages/         # Application pages (Home, Search, Event details...)
 ├── hooks/         # Custom React hooks
 ├── assets/        # Static assets (images, icons)
-├── context/       # React Context API providers
 └── App.tsx        # Main app entry
 ```
 # Step 1: Clone the repository
