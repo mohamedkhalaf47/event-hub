@@ -28,8 +28,7 @@ applications for a portfolio project.
 
 ## 🔗 Demo
 
-[Live Demo (Placeholder: Add your Vercel deployment link here once
-deployed.)](https://khalaf-eventhub.netlify.app/)
+[Live Demo](https://khalaf-eventhub.netlify.app/)
 
 ---
 
