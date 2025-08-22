@@ -76,7 +76,7 @@ const EventCard = ({
 							<p className="text-sm text-muted-foreground">{time}</p>
 						</div>
 					</div>
-					<Badge variant="secondary" className="text-[8px]">
+					<Badge variant="secondary" className="text-[9.5px]">
 						{category}
 					</Badge>
 				</div>
