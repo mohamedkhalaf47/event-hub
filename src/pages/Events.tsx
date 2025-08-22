@@ -164,7 +164,7 @@ const Events = () => {
 					<p className="text-muted-foreground mb-6">
 						Try adjusting your search terms or check back later for new events.
 					</p>
-					<Button variant="outline">Clear Search</Button>
+					<Button variant="outline" aria-label="clear search">Clear Search</Button>
 				</div>
 			)}
 		</div>

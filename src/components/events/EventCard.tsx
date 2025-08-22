@@ -110,7 +110,7 @@ const EventCard = ({
 			<CardFooter className="pt-0">
 				<div className="flex w-full space-x-2">
 					<Link to={`/event/${id}`} className="flex-1">
-						<Button variant="outline" className="w-full">
+						<Button variant="outline" className="w-full" aria-label="View Details">
 							View Details
 						</Button>
 					</Link>
@@ -119,6 +119,7 @@ const EventCard = ({
 							isRSVPed ? "btn-gradient-accent" : "btn-gradient-secondary"
 						}`}
 						onClick={handleRSVP}
+						aria-label="Event Joining Button"
 					>
 						{isRSVPed ? "You Joined The Event!" : "Join Now"}
 					</Button>

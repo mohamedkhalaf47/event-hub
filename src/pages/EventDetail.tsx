@@ -79,11 +79,11 @@ const EventDetail = () => {
 							</h1>
 						</div>
 						<div className="flex space-x-2">
-							<Button variant="outline" size="sm">
+							<Button variant="outline" size="sm" aria-label="share">
 								<Share2 className="h-4 w-4 mr-2" />
 								Share
 							</Button>
-							<Button variant="outline" size="sm">
+							<Button variant="outline" size="sm" aria-label="edit">
 								<Edit className="h-4 w-4 mr-2" />
 								Edit
 							</Button>
@@ -91,6 +91,7 @@ const EventDetail = () => {
 								variant="outline"
 								size="sm"
 								className="text-destructive hover:text-destructive"
+								aria-label="delete"
 							>
 								<Trash2 className="h-4 w-4 mr-2" />
 								Delete
@@ -134,6 +135,7 @@ const EventDetail = () => {
 							isRSVPed ? "btn-gradient-accent" : "btn-gradient-secondary"
 						} text-lg px-8 py-6`}
 						size="lg"
+						aria-label="Join"
 					>
 						<Users className="h-5 w-5 mr-2" />
 						{isRSVPed ? "You're Going!" : "Join Now"}
@@ -181,7 +183,7 @@ const EventDetail = () => {
 											Event Organizer
 										</p>
 									</div>
-									<Button variant="outline" size="sm" className="ml-auto">
+									<Button variant="outline" size="sm" className="ml-auto" aria-label="Follow">
 										Follow
 									</Button>
 								</div>

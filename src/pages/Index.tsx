@@ -60,6 +60,7 @@ const Index = () => {
 								size="lg"
 								className="btn-gradient-primary w-full sm:w-auto"
 								onClick={handleSearch}
+								aria-label="search"
 							>
 								<Search className="h-4 w-4 mr-2" />
 								Search
@@ -68,7 +69,7 @@ const Index = () => {
 
 						<div className="flex flex-wrap justify-center gap-4">
 							<Link to="/create">
-								<Button size="lg" className="btn-gradient-secondary">
+								<Button size="lg" className="btn-gradient-secondary" aria-label="Create Event">
 									<Calendar className="h-4 w-4 mr-2" />
 									Create Event
 								</Button>
@@ -78,6 +79,7 @@ const Index = () => {
 									size="lg"
 									variant="outline"
 									className="bg-background/80 backdrop-blur"
+									aria-label="Join Community"
 								>
 									<Users className="h-4 w-4 mr-2" />
 									Join Community
@@ -144,7 +146,7 @@ const Index = () => {
 
 					<div className="text-center">
 						<Link to="/events">
-							<Button size="lg" variant="outline">
+							<Button size="lg" variant="outline" aria-label="View Events">
 								View All Events
 							</Button>
 						</Link>

@@ -145,6 +145,7 @@ const Auth = () => {
 										type="submit"
 										className="btn-gradient-secondary w-full"
 										disabled={isLoading}
+										aria-label="Sign in"
 									>
 										{isLoading ? "Signing In..." : "Sign In"}
 									</Button>
@@ -259,6 +260,7 @@ const Auth = () => {
 										type="submit"
 										className="btn-gradient-secondary w-full"
 										disabled={isLoading}
+										aria-label="Create Account"
 									>
 										{isLoading ? "Creating Account..." : "Create Account"}
 									</Button>

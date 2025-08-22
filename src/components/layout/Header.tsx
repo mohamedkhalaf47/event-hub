@@ -30,6 +30,7 @@ const Header = () => {
 							className={`flex items-center space-x-2 ${
 								isActive("/") ? "text-primary bg-primary/10" : ""
 							}`}
+							aria-label="Home"
 						>
 							<Home className="h-4 w-4" />
 							<span>Home</span>
@@ -42,6 +43,7 @@ const Header = () => {
 							className={`flex items-center space-x-2 ${
 								isActive("/events") ? "text-primary bg-primary/10" : ""
 							}`}
+							aria-label="Events"
 						>
 							<Grid3X3 className="h-4 w-4" />
 							<span>Events</span>
@@ -54,6 +56,7 @@ const Header = () => {
 							className={`flex items-center space-x-2 ${
 								isActive("/create") ? "text-primary bg-primary/10" : ""
 							}`}
+							aria-label="Create Event"
 						>
 							<Calendar className="h-4 w-4" />
 							<span>Create Event</span>
@@ -63,11 +66,11 @@ const Header = () => {
 				<div className="hidden md:flex">
 					{isLoggedIn ? (
 						<Link to="/auth">
-							<Button className="btn-gradient-secondary">Sign In</Button>
+							<Button className="btn-gradient-secondary" aria-label="Sign-in">Sign In</Button>
 						</Link>
 					) : (
 						<Link to="/profile">
-							<Button variant="ghost" size="sm" className="p-2">
+							<Button variant="ghost" size="sm" className="p-2" aria-label="Profile">
 								<Avatar className="h-8 w-8">
 									<AvatarFallback className="bg-primary/10 text-primary">
 										<User className="h-4 w-4" />
@@ -82,11 +85,11 @@ const Header = () => {
 				<div className="md:hidden ml-auto flex items-center space-x-2">
 					{isLoggedIn ? (
 						<Link to="/auth">
-							<Button className="btn-gradient-secondary">Sign In</Button>
+							<Button className="btn-gradient-secondary" aria-label="Sign in">Sign In</Button>
 						</Link>
 					) : (
 						<Link to="/profile">
-							<Button variant="ghost" size="sm" className="p-2">
+							<Button variant="ghost" size="sm" className="p-2" aria-label="Profile">
 								<Avatar className="h-8 w-8">
 									<AvatarFallback className="bg-primary/10 text-primary">
 										<User className="h-4 w-4" />
@@ -98,7 +101,7 @@ const Header = () => {
 
 					<Sheet>
 						<SheetTrigger asChild>
-							<Button variant="ghost" size="sm" className="p-2">
+							<Button variant="ghost" size="sm" className="p-2" aria-label="menu">
 								<Menu className="h-6 w-6" />
 							</Button>
 						</SheetTrigger>
@@ -112,6 +115,7 @@ const Header = () => {
 											className={`w-full justify-start space-x-2 ${
 												isActive("/") ? "text-primary bg-primary/10" : ""
 											}`}
+											aria-label="home"
 										>
 											<Home className="h-4 w-4" />
 											<span>Home</span>
@@ -124,6 +128,7 @@ const Header = () => {
 											className={`w-full justify-start space-x-2 ${
 												isActive("/events") ? "text-primary bg-primary/10" : ""
 											}`}
+											aria-label="events"
 										>
 											<Grid3X3 className="h-4 w-4" />
 											<span>Events</span>
@@ -136,6 +141,7 @@ const Header = () => {
 											className={`w-full justify-start space-x-2 ${
 												isActive("/create") ? "text-primary bg-primary/10" : ""
 											}`}
+											aria-label="create event"
 										>
 											<Calendar className="h-4 w-4" />
 											<span>Create Event</span>

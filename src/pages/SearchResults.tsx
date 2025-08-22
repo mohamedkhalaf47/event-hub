@@ -156,7 +156,7 @@ const SearchResults = () => {
 								className="pl-10"
 							/>
 						</div>
-						<Button type="submit" className="btn-gradient-primary">
+						<Button type="submit" className="btn-gradient-primary" aria-label="Search">
 							<Search className="h-4 w-4 mr-2" />
 							Search
 						</Button>
@@ -216,6 +216,7 @@ const SearchResults = () => {
 							className="mt-3 text-md hover:bg-red-600 hover:text-white"
 							size="sm"
 							variant="outline"
+							aria-label="Clear Search"
 						>
 							Clear Search
 						</Button>
@@ -248,7 +249,7 @@ const SearchResults = () => {
 				{/* Load More */}
 				{filteredResults.length > 0 && (
 					<div className="text-center mt-8">
-						<Button variant="outline" size="lg">
+						<Button variant="outline" size="lg" aria-label="Load Events">
 							Load More Events
 						</Button>
 					</div>

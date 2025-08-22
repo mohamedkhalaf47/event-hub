@@ -174,6 +174,7 @@ const CreateEvent = () => {
 										type="submit"
 										className="btn-gradient-secondary flex-1"
 										disabled={isLoading}
+										aria-label="Create Event"
 									>
 										{isLoading ? "Creating..." : "Create Event"}
 									</Button>
@@ -190,6 +191,7 @@ const CreateEvent = () => {
 												category: "",
 											})
 										}
+										aria-label="create form"
 									>
 										Clear Form
 									</Button>
