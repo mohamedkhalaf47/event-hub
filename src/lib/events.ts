@@ -15,7 +15,7 @@ export interface Event {
 }
 
 // Mock events data
-const eventsData = [
+const eventsData: Event[] = [
 	{
 		id: "1",
 		title: "Community Garden Festival",
