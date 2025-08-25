@@ -72,7 +72,7 @@ const Auth = () => {
 						<Calendar className="h-12 w-12 text-primary" />
 					</div>
 					<h1 className="text-3xl font-poppins font-bold mb-2">
-						Welcome to Event-Hub
+						Welcome to EventHub
 					</h1>
 					<p className="text-muted-foreground">
 						Join our community of event organizers and attendees

@@ -1,16 +1,16 @@
-import { Search, User, Calendar, Home, Menu, Grid3X3 } from "lucide-react";
+import { User, Calendar, Home, Menu, Grid3X3, LogOut } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useState } from "react";
 
 const Header = () => {
 	const location = useLocation();
 
 	const isActive = (path: string) => location.pathname === path;
 
-	const isLoggedIn = false;
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 	return (
 		<nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -66,18 +66,36 @@ const Header = () => {
 				<div className="hidden md:flex">
 					{isLoggedIn ? (
 						<Link to="/auth">
-							<Button className="btn-gradient-secondary" aria-label="Sign-in">Sign In</Button>
-						</Link>
-					) : (
-						<Link to="/profile">
-							<Button variant="ghost" size="sm" className="p-2" aria-label="Profile">
-								<Avatar className="h-8 w-8">
-									<AvatarFallback className="bg-primary/10 text-primary">
-										<User className="h-4 w-4" />
-									</AvatarFallback>
-								</Avatar>
+							<Button className="btn-gradient-secondary" aria-label="Sign-in">
+								Sign In
 							</Button>
 						</Link>
+					) : (
+						<div className="flex items-center gap-2">
+							<Button
+								variant="ghost"
+								size="lg"
+								className="p-2 w-8 h-8"
+								aria-label="Logout"
+								onClick={() => setIsLoggedIn(true)}
+							>
+								<LogOut />
+							</Button>
+							<Link to="/profile">
+								<Button
+									variant="ghost"
+									size="sm"
+									className="p-2"
+									aria-label="Profile"
+								>
+									<Avatar className="h-8 w-8">
+										<AvatarFallback className="bg-primary/10 text-primary">
+											<User className="h-4 w-4" />
+										</AvatarFallback>
+									</Avatar>
+								</Button>
+							</Link>
+						</div>
 					)}
 				</div>
 
@@ -85,23 +103,46 @@ const Header = () => {
 				<div className="md:hidden ml-auto flex items-center space-x-2">
 					{isLoggedIn ? (
 						<Link to="/auth">
-							<Button className="btn-gradient-secondary" aria-label="Sign in">Sign In</Button>
-						</Link>
-					) : (
-						<Link to="/profile">
-							<Button variant="ghost" size="sm" className="p-2" aria-label="Profile">
-								<Avatar className="h-8 w-8">
-									<AvatarFallback className="bg-primary/10 text-primary">
-										<User className="h-4 w-4" />
-									</AvatarFallback>
-								</Avatar>
+							<Button className="btn-gradient-secondary" aria-label="Sign in">
+								Sign In
 							</Button>
 						</Link>
+					) : (
+						<div className="flex items-center gap-2">
+							<Button
+								variant="ghost"
+								size="lg"
+								className="p-2 h-8 w-8"
+								aria-label="Logout"
+								onClick={() => setIsLoggedIn(true)}
+							>
+								<LogOut />
+							</Button>
+							<Link to="/profile">
+								<Button
+									variant="ghost"
+									size="sm"
+									className="p-2"
+									aria-label="Profile"
+								>
+									<Avatar className="h-8 w-8">
+										<AvatarFallback className="bg-primary/10 text-primary">
+											<User className="h-4 w-4" />
+										</AvatarFallback>
+									</Avatar>
+								</Button>
+							</Link>
+						</div>
 					)}
 
 					<Sheet>
 						<SheetTrigger asChild>
-							<Button variant="ghost" size="sm" className="p-2" aria-label="menu">
+							<Button
+								variant="ghost"
+								size="sm"
+								className="p-2"
+								aria-label="menu"
+							>
 								<Menu className="h-6 w-6" />
 							</Button>
 						</SheetTrigger>
